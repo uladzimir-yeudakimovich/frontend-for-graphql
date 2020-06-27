@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/client'
 
-import Notification from '../notification'
-import Display from './display'
-import PersonForm from './person-form'
-import PhoneForm from './phone-form'
-import { ALL_PERSONS } from '../queries'
+import Notification from '../shared/Notification'
+import Display from './Display'
+import PersonForm from './PersonForm'
+import PhoneForm from './PhoneForm'
+import { ALL_PERSONS } from '../shared/queries'
 
 const Persons = () => {
   const [errorMessage, setErrorMessage] = useState(null)
