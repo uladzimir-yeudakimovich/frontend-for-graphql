@@ -7,12 +7,16 @@ import PersonForm from './PersonForm'
 import PhoneForm from './PhoneForm'
 import { ALL_PERSONS } from '../shared/queries'
 
-const Persons = () => {
+const Persons = (props) => {
   const [errorMessage, setErrorMessage] = useState(null)
 
   const result = useQuery(ALL_PERSONS, {
     // pollInterval: 2000
   })
+
+  if (!props.show) {
+    return null
+  }
 
   if (result.loading)  {
     return <div>loading...</div>
