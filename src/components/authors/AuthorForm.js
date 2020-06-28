@@ -10,8 +10,8 @@ const AuthorForm = ({ setError }) => {
   const [ changeAuthor, result ] = useMutation(EDIT_AUTHOR)
 
   useEffect(() => {
-    if (result.data && result.data.editNumber === null) {
-      setError('person not found')
+    if (result.data && result.data.editAuthor === null) {
+      setError('author not found')
     }
   }, [result.data]) // eslint-disable-line
 
