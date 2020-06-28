@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
 
 import { EDIT_AUTHOR } from '../../queries'
 
-const AuthorForm = ({ setError }) => {
+const AuthorForm = ({ authors }) => {
   const [name, setName] = useState('')
   const [born, setBorn] = useState('')
 
-  const [ changeAuthor, result ] = useMutation(EDIT_AUTHOR)
-
-  useEffect(() => {
-    if (result.data && result.data.editAuthor === null) {
-      setError('author not found')
-    }
-  }, [result.data]) // eslint-disable-line
-
+  const [ changeAuthor ] = useMutation(EDIT_AUTHOR)
+  const handleChange = event => setName(event.target.value)
 
   const submit = async (event) => {
     event.preventDefault()
-
     changeAuthor({ variables: { name, setBornTo: Number(born) } })
-
     setName('')
     setBorn('')
   }
@@ -28,14 +20,15 @@ const AuthorForm = ({ setError }) => {
   return (
     <div>
       <h2>Set birthyear</h2>
-
       <form onSubmit={submit}>
-        <div>
-          name <input
-            value={name}
-            onChange={({ target }) => setName(target.value)}
-          />
-        </div>
+        <label>
+          name
+          <select value={authors[0].name} onChange={handleChange}>
+            {authors.map(a =>
+              <option key={a.id} value={a.name}>{a.name}</option>
+            )}
+          </select>
+        </label>
         <div>
           born <input
             type='number'

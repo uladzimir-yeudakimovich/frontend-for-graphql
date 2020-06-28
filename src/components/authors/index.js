@@ -19,7 +19,7 @@ const Authors = (props) => {
   return (
     <>
       <Display authors={result.data.allAuthors} />
-      <AuthorForm setError={props.setError} />
+      <AuthorForm authors={result.data.allAuthors} />
     </>
   )
 }
