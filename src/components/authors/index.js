@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 
 import AuthorForm from './AuthorForm'
+import Display from './Display'
 import { ALL_AUTHORS } from '../../queries'
 
 const Authors = (props) => {
@@ -16,30 +17,10 @@ const Authors = (props) => {
   }
 
   return (
-    <div>
-      <h2>authors</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>
-              born
-            </th>
-            <th>
-              books
-            </th>
-          </tr>
-          {result.data.allAuthors.map(a =>
-            <tr key={a.id}>
-              <td>{a.name}</td>
-              <td>{a.born}</td>
-              <td>{a.bookCount}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+    <>
+      <Display authors={result.data.allAuthors} />
       <AuthorForm setError={props.setError} />
-    </div>
+    </>
   )
 }
 
