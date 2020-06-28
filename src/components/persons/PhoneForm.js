@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useMutation } from '@apollo/client'
 
-import { EDIT_NUMBER } from '../shared/queries'
+import { EDIT_NUMBER } from '../../queries'
 
 const PhoneForm = ({ setError }) => {
   const [name, setName] = useState('')

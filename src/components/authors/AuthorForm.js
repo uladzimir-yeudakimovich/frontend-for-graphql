@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useMutation } from '@apollo/client'
 
-import { EDIT_AUTHOR } from '../shared/queries'
+import { EDIT_AUTHOR } from '../../queries'
 
 const AuthorForm = ({ setError }) => {
   const [name, setName] = useState('')

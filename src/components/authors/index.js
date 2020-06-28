@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 
 import AuthorForm from './AuthorForm'
-import { ALL_AUTHORS } from '../shared/queries'
+import { ALL_AUTHORS } from '../../queries'
 
 const Authors = (props) => {
   const result = useQuery(ALL_AUTHORS)

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 
-import { FIND_PERSON } from '../shared/queries'
+import { FIND_PERSON } from '../../queries'
 
 const Display = ({ persons }) => {
   const [getPerson, result] = useLazyQuery(FIND_PERSON) 

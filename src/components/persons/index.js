@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import Display from './Display'
 import PersonForm from './PersonForm'
 import PhoneForm from './PhoneForm'
-import { ALL_PERSONS } from '../shared/queries'
+import { ALL_PERSONS } from '../../queries'
 
 const Persons = (props) => {
   const result = useQuery(ALL_PERSONS, {

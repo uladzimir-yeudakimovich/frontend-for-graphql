@@ -5,7 +5,7 @@ import Authors from './components/authors'
 import Books from './components/books'
 import NewBook from './components/books/NewBook'
 import Persons from './components/persons'
-import Notification from './components/shared/Notification'
+import Notification from './Notification'
 
 const App = () => {
   const [errorMessage, setErrorMessage] = useState(null)
