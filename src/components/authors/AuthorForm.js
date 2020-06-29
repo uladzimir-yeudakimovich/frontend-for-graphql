@@ -17,6 +17,10 @@ const AuthorForm = ({ authors }) => {
     setBorn('')
   }
 
+  if (!authors.length) {
+    return null
+  }
+
   return (
     <div>
       <h2>Set birthyear</h2>

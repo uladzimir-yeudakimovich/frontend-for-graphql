@@ -1,29 +1,29 @@
 import React from 'react'
 
-const Display = ({ authors }) => {
-  if (!authors.length) {
+const Display = ({ books }) => {
+  if (!books.length) {
     return null
   }
 
   return (
     <>
-      <h2>authors</h2>
+      <h2>books</h2>
       <table>
         <tbody>
           <tr>
             <th></th>
             <th>
-              born
+              author
             </th>
             <th>
-              books
+              published
             </th>
           </tr>
-          {authors.map(a =>
+          {books.map(a =>
             <tr key={a.id}>
-              <td>{a.name}</td>
-              <td>{a.born}</td>
-              <td>{a.bookCount}</td>
+              <td>{a.title}</td>
+              <td>{a.author}</td>
+              <td>{a.published}</td>
             </tr>
           )}
         </tbody>
