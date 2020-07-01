@@ -2,7 +2,11 @@ import React from 'react'
 
 const Display = ({ authors }) => {
   if (!authors.length) {
-    return null
+    return (
+      <>
+        <h2>authors</h2>
+      </>
+    )
   }
 
   return (
