@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useApolloClient } from '@apollo/client'
 
 import './App.css'
+import LoginForm from './components/login/login'
 import Authors from './components/authors'
 import Books from './components/books'
 import NewBook from './components/books/NewBook'
@@ -8,14 +10,35 @@ import Persons from './components/persons'
 import Notification from './Notification'
 
 const App = () => {
+  const [token, setToken] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const [page, setPage] = useState('authors')
+  const client = useApolloClient()
 
   const notify = (message) => {
     setErrorMessage(message)
     setTimeout(() => {
       setErrorMessage(null)
     }, 10000)
+  }
+
+  const logout = () => {
+    setToken(null)
+    localStorage.clear()
+    client.resetStore()
+  }
+
+  if (!token) {
+    return (
+      <div>
+        <Notification errorMessage={errorMessage} />
+        <h2>Login</h2>
+        <LoginForm
+          setToken={setToken}
+          setError={notify}
+        />
+      </div>
+    )
   }
 
   return (
