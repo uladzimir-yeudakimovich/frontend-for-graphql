@@ -10,9 +10,9 @@ import Persons from './components/persons'
 import Notification from './Notification'
 
 const App = () => {
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem('_at'))
   const [errorMessage, setErrorMessage] = useState(null)
-  const [page, setPage] = useState('login')
+  const [page, setPage] = useState('authors')
   const client = useApolloClient()
 
   const notify = (message) => {
