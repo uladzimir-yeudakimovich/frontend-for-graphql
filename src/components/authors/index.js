@@ -19,7 +19,7 @@ const Authors = (props) => {
   if (!result.data) {
     return (
       <>
-        <h2>authors</h2>
+        <h2>Authors</h2>
       </>
     )
   }

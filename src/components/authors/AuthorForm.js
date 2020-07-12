@@ -23,7 +23,7 @@ const AuthorForm = ({ authors }) => {
 
   return (
     <div>
-      <h2>Set birthyear</h2>
+      <h2>set birthyear</h2>
       <form onSubmit={submit}>
         <label>
           name

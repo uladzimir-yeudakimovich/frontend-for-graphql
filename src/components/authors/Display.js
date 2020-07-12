@@ -4,14 +4,14 @@ const Display = ({ authors }) => {
   if (!authors.length) {
     return (
       <>
-        <h2>authors</h2>
+        <h2>Authors</h2>
       </>
     )
   }
 
   return (
     <>
-      <h2>authors</h2>
+      <h2>Authors</h2>
       <table>
         <tbody>
           <tr>

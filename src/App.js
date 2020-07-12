@@ -12,7 +12,7 @@ import Notification from './Notification'
 const App = () => {
   const [token, setToken] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-  const [page, setPage] = useState('authors')
+  const [page, setPage] = useState('login')
   const client = useApolloClient()
 
   const notify = (message) => {
@@ -24,6 +24,7 @@ const App = () => {
 
   const logout = () => {
     setToken(null)
+    setPage('login')
     localStorage.clear()
     client.resetStore()
   }
@@ -31,12 +32,16 @@ const App = () => {
   if (!token) {
     return (
       <div>
+        <div>
+          <button onClick={() => setPage('authors')}>authors</button>
+          <button onClick={() => setPage('books')}>books</button>
+          <button onClick={() => setPage('login')}>login</button>
+        </div>
+
         <Notification errorMessage={errorMessage} />
-        <h2>Login</h2>
-        <LoginForm
-          setToken={setToken}
-          setError={notify}
-        />
+        <Authors show={page === 'authors'} setError={notify} />
+        <Books show={page === 'books'} setError={notify} />
+        <LoginForm show={page === 'login'} setToken={setToken} setError={notify} setPage={setPage} />
       </div>
     )
   }
@@ -48,6 +53,7 @@ const App = () => {
         <button onClick={() => setPage('authors')}>authors</button>
         <button onClick={() => setPage('books')}>books</button>
         <button onClick={() => setPage('add')}>add book</button>
+        <button onClick={() => logout()}>logout</button>
       </div>
 
       <Notification errorMessage={errorMessage} />
