@@ -7,6 +7,7 @@ import Authors from './components/authors'
 import Books from './components/books'
 import NewBook from './components/books/NewBook'
 import Persons from './components/persons'
+import Recommend from './components/books/Recommend'
 import Notification from './Notification'
 
 const App = () => {
@@ -53,14 +54,16 @@ const App = () => {
         <button onClick={() => setPage('authors')}>authors</button>
         <button onClick={() => setPage('books')}>books</button>
         <button onClick={() => setPage('add')}>add book</button>
+        <button onClick={() => setPage('recommend')}>recommend</button>
         <button onClick={logout}>logout</button>
       </div>
 
       <Notification errorMessage={errorMessage} />
+      <Persons show={page === 'persons'} setError={notify} />
       <Authors show={page === 'authors'} setError={notify} />
       <Books show={page === 'books'} setError={notify} />
       <NewBook show={page === 'add'} setError={notify} />
-      <Persons show={page === 'persons'} setError={notify} />
+      <Recommend show={page === 'recommend'} recommend={'refactoring'} setError={notify} />
     </div>
   )
 }
