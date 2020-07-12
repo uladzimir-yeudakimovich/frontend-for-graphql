@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Display = ({ books }) => {
+const Display = ({ books, genre }) => {
   if (!books.length) {
     return null
   }
@@ -8,16 +8,13 @@ const Display = ({ books }) => {
   return (
     <>
       <h2>Books</h2>
+      <p>in genre <strong>{ genre }</strong></p>
       <table>
         <tbody>
           <tr>
             <th></th>
-            <th>
-              author
-            </th>
-            <th>
-              published
-            </th>
+            <th>author</th>
+            <th>published</th>
           </tr>
           {books.map(a =>
             <tr key={a.id}>
