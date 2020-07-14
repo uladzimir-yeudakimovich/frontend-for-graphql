@@ -6,12 +6,12 @@ import PersonForm from './PersonForm'
 import PhoneForm from './PhoneForm'
 import { ALL_PERSONS } from '../../queries'
 
-const Persons = (props) => {
+const Persons = ({ setError, updateCacheWith, show }) => {
   const result = useQuery(ALL_PERSONS, {
     // pollInterval: 2000
   })
 
-  if (!props.show) {
+  if (!show) {
     return null
   }
 
@@ -22,8 +22,8 @@ const Persons = (props) => {
   return (
     <>
       <Display persons={result.data.allPersons} />
-      <PersonForm setError={props.setError} />
-      <PhoneForm setError={props.setError} />
+      <PersonForm setError={setError} updateCacheWith={updateCacheWith} />
+      <PhoneForm setError={setError} />
     </>
   )
 }
