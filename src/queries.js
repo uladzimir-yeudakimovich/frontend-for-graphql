@@ -8,21 +8,25 @@ export const LOGIN = gql`
   }
 `
 
+const PERSON_DETAILS = gql`
+  fragment PersonDetails on Person {
+    id
+    name
+    phone 
+    address {
+      street 
+      city
+    }
+  }
+`
+
 export const ALL_PERSONS = gql`
 {
   allPersons  {
     ...PersonDetails
   }
 }
-fragment PersonDetails on Person {
-  name
-  phone
-  id
-  address {
-    street 
-    city
-  }
-}
+${PERSON_DETAILS}
 `
 
 export const ALL_AUTHORS = gql`
