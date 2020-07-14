@@ -9,13 +9,20 @@ export const LOGIN = gql`
 `
 
 export const ALL_PERSONS = gql`
-  query  {
-    allPersons  {
-      name
-      phone
-      id
-    }
+{
+  allPersons  {
+    ...PersonDetails
   }
+}
+fragment PersonDetails on Person {
+  name
+  phone
+  id
+  address {
+    street 
+    city
+  }
+}
 `
 
 export const ALL_AUTHORS = gql`
